@@ -14,7 +14,11 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors({ origin: 'http://localhost:5173', methods: ['GET', 'POST'] }));
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST']
+}));
+
 
 io.on('connection', (socket) => {
   console.log('Cliente conectado');
