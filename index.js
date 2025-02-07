@@ -14,11 +14,7 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors({
-  origin: '*', 
-  methods: ['GET', 'POST']
-}));
-
+app.use(cors({ origin: 'http://localhost:5173', methods: ['GET', 'POST'] }));
 
 io.on('connection', (socket) => {
   console.log('Cliente conectado');
@@ -33,8 +29,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 server.listen(port, () => {
-  console.log(`Servidor WebSockets corriendo en el puerto ${port}`);
+  console.log(`Servidor WebSockets corriendo en http://localhost:${port}`);
 });
-
